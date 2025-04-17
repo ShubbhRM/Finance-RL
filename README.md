@@ -24,8 +24,16 @@ We experimented with:
 
 Each notebook corresponds to a unique combination of architecture, trading strategy, and reward signal:
 
-- **DQN_CustomPolicy(CNN)_AllInPolicy.ipynb**: Uses **CNN** architecture with **All-In Policy** and **Basic Reward**.- **DQN_CustomPolicy(CNN)_AllInPolicy-SharpeRatio.ipynb**: Uses **CNN** architecture with **All-In Policy** and **Sharpe Ratio-based Reward**.- **DQN_CustomPolicy(CNN)_OneStockPolicy.ipynb**: Uses **CNN** architecture with **One-Stock Policy** and **Basic Reward**.- **DQN_CustomPolicy(CNN)_OneStockPolicy-SharpeRatio.ipynb**: Uses **CNN** architecture with **One-Stock Policy** and **Sharpe Ratio-based Reward**.- **DQN_CustomPolicy(CNN-LSTM)_AllInPolicy.ipynb**: Uses **CNN-LSTM** architecture with **All-In Policy** and **Basic Reward**.- **DQN_CustomPolicy(CNN-LSTM)_OneStockPolicy.ipynb**: Uses **CNN-LSTM** architecture with **One-Stock Policy** and **Basic Reward**.- **DQN_MlpPolicy_AllInPolicy.ipynb**: Uses **MLP** architecture with **All-In Policy** and **Basic Reward**.- **DQN_MlpPolicy_AllInPolicy-NetWorthCentric.ipynb**: Uses **MLP** architecture with **All-In Policy** and **Net Worth-Centric Reward**.- **DQN_MlpPolicy_OneStockPolicy.ipynb**: Uses **MLP** architecture with **One-Stock Policy** and **Basic Reward**.- **DQN_MlpPolicy_OneStockPolicy-NetWorthCentric.ipynb**: Uses **MLP** architecture with **One-Stock Policy** and **Net Worth-Centric Reward**.
-
+- **DQN_CustomPolicy(CNN)_AllInPolicy.ipynb**: Uses **CNN** architecture with **All-In Policy** and **Basic Reward**.
+- **DQN_CustomPolicy(CNN)_AllInPolicy-SharpeRatio.ipynb**: Uses **CNN** architecture with **All-In Policy** and **Sharpe Ratio-based Reward**.
+- **DQN_CustomPolicy(CNN)_OneStockPolicy.ipynb**: Uses **CNN** architecture with **One-Stock Policy** and **Basic Reward**.
+- **DQN_CustomPolicy(CNN)_OneStockPolicy-SharpeRatio.ipynb**: Uses **CNN** architecture with **One-Stock Policy** and **Sharpe Ratio-based Reward**.
+- **DQN_CustomPolicy(CNN-LSTM)_AllInPolicy.ipynb**: Uses **CNN-LSTM** architecture with **All-In Policy** and **Basic Reward**.
+- **DQN_CustomPolicy(CNN-LSTM)_OneStockPolicy.ipynb**: Uses **CNN-LSTM** architecture with **One-Stock Policy** and **Basic Reward**.
+- **DQN_MlpPolicy_AllInPolicy.ipynb**: Uses **MLP** architecture with **All-In Policy** and **Basic Reward**.
+- **DQN_MlpPolicy_AllInPolicy-NetWorthCentric.ipynb**: Uses **MLP** architecture with **All-In Policy** and **Net Worth-Centric Reward**.
+- **DQN_MlpPolicy_OneStockPolicy.ipynb**: Uses **MLP** architecture with **One-Stock Policy** and **Basic Reward**.
+- **DQN_MlpPolicy_OneStockPolicy-NetWorthCentric.ipynb**: Uses **MLP** architecture with **One-Stock Policy** and **Net Worth-Centric Reward**.
 - **ML Mods 1.ipynb**: Focused on traditional machine learning models applied to financial stock data. Likely includes preprocessing, feature engineering, and regressors/classifiers.
 - **PPO_MlpPolicy_AllIn.ipynb**: Implements Proximal Policy Optimization (PPO) with an All-In policy using MlpPolicy. Designed for continuous control in trading decisions.
 - **PPO_MlpPolicy_AllIn-Copy1.ipynb**: Implements Proximal Policy Optimization (PPO) with an All-In policy using MlpPolicy. Designed for continuous control in trading decisions.
