@@ -80,10 +80,4 @@ jupyter notebook DQN_MlpPolicy_AllInPolicy.ipynb
 
 ---
 
-## 🙏 Acknowledgements
-
-Special thanks to **Justin Turnau** (TA) for continued support throughout this project.
-
-Inspired by curiosity, built with persistence.
-
 ---
