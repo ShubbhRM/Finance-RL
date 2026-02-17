@@ -1,97 +1,143 @@
-
-# 📈 Reinforcement Learning for Stock Trading — DQN-Based Agents
-
-This project implements and compares various Deep Q-Network (DQN) based reinforcement learning agents to trade stocks using different policy strategies, reward mechanisms, and neural network architectures.
-
----
-
-## 🧠 Project Motivation
-
-> _"I am making an RL bot..."_ — From the beginning, the project revolved around testing realistic trading strategies via reinforcement learning. After struggling with flat MLP policies that fail to capture temporal dependencies, we explored hybrid deep learning models like CNNs and LSTMs.
-
-The main question:
-> How much should the bot buy, sell, or hold? Can temporal patterns be exploited for more intelligent decisions?
-
-We experimented with:
-- Discrete Action Spaces (Buy/Sell/Hold)
-- "All-In" Strategy (buy/sell everything at once)
-- Continuous Control Plans (upcoming)
-- Multiple reward strategies including Sharpe Ratio and Net Worth delta
-
----
-
-## 🧪 Experiments and Notebooks
-
-Each notebook corresponds to a unique combination of architecture, trading strategy, and reward signal:
-
-- **DQN_CustomPolicy(CNN)_AllInPolicy.ipynb**: Uses **CNN** architecture with **All-In Policy** and **Basic Reward**.
-- **DQN_CustomPolicy(CNN)_AllInPolicy-SharpeRatio.ipynb**: Uses **CNN** architecture with **All-In Policy** and **Sharpe Ratio-based Reward**.
-- **DQN_CustomPolicy(CNN)_OneStockPolicy.ipynb**: Uses **CNN** architecture with **One-Stock Policy** and **Basic Reward**.
-- **DQN_CustomPolicy(CNN)_OneStockPolicy-SharpeRatio.ipynb**: Uses **CNN** architecture with **One-Stock Policy** and **Sharpe Ratio-based Reward**.
-- **DQN_CustomPolicy(CNN-LSTM)_AllInPolicy.ipynb**: Uses **CNN-LSTM** architecture with **All-In Policy** and **Basic Reward**.
-- **DQN_CustomPolicy(CNN-LSTM)_OneStockPolicy.ipynb**: Uses **CNN-LSTM** architecture with **One-Stock Policy** and **Basic Reward**.
-- **DQN_MlpPolicy_AllInPolicy.ipynb**: Uses **MLP** architecture with **All-In Policy** and **Basic Reward**.
-- **DQN_MlpPolicy_AllInPolicy-NetWorthCentric.ipynb**: Uses **MLP** architecture with **All-In Policy** and **Net Worth-Centric Reward**.
-- **DQN_MlpPolicy_OneStockPolicy.ipynb**: Uses **MLP** architecture with **One-Stock Policy** and **Basic Reward**.
-- **DQN_MlpPolicy_OneStockPolicy-NetWorthCentric.ipynb**: Uses **MLP** architecture with **One-Stock Policy** and **Net Worth-Centric Reward**.
-- **ML Mods 1.ipynb**: Focused on traditional machine learning models applied to financial stock data. Likely includes preprocessing, feature engineering, and regressors/classifiers.
-- **PPO_MlpPolicy_AllIn.ipynb**: Implements Proximal Policy Optimization (PPO) with an All-In policy using MlpPolicy. Designed for continuous control in trading decisions.
-- **PPO_MlpPolicy_AllIn-Copy1.ipynb**: Implements Proximal Policy Optimization (PPO) with an All-In policy using MlpPolicy. Designed for continuous control in trading decisions.
-
-
-
----
-
-## 🧾 Action Space Variants
-
-1. **OneStockPolicy (Discrete)**: Buy/Sell/Hold fixed single unit
-2. **AllInPolicy (Discrete)**: Buy or sell full amount (100%)
-3. **Continuous (Upcoming)**: Fractional trade between [-1, 1] using PPO/DDPG
-
----
-
-## 🔍 Key Design Elements
-
-- **State Space**: Context windows of historical data with technical indicators
-- **Neural Architectures**:
-  - MLP (default Stable-Baselines3)
-  - Custom CNN
-  - Hybrid CNN-LSTM
-- **Custom Feature Extractors**: Used for deep temporal feature modeling
-- **Reward Strategies**:
-  - Profit/Loss Delta
-  - Sharpe Ratio Boosting
-  - Net Worth-centric progression
-- **Evaluation**:
-  - Trading Signal Visualization
-  - Net Worth Growth
-  - Sharpe Ratio Comparison
-
----
-
-## 🔧 How to Run
-
-1. Clone the repo and install dependencies:
-```bash
-pip install stable-baselines3[extra] gym pandas matplotlib
+```
+███████╗██╗███╗   ██╗ █████╗ ███╗   ██╗ ██████╗███████╗      ██████╗ ██╗
+██╔════╝██║████╗  ██║██╔══██╗████╗  ██║██╔════╝██╔════╝      ██╔══██╗██║
+█████╗  ██║██╔██╗ ██║███████║██╔██╗ ██║██║     █████╗  █████╗██████╔╝██║
+██╔══╝  ██║██║╚██╗██║██╔══██║██║╚██╗██║██║     ██╔══╝  ╚════╝██╔══██╗██║
+██║     ██║██║ ╚████║██║  ██║██║ ╚████║╚██████╗███████╗      ██║  ██║███████╗
+╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝      ╚═╝  ╚═╝╚══════╝
 ```
 
-2. Run any notebook from Jupyter or Colab:
-```bash
-jupyter notebook DQN_MlpPolicy_AllInPolicy.ipynb
+<div align="center">
+
+**`[ Reinforcement Learning for Algorithmic Stock Trading ]`**
+
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white&labelColor=0a0a0a)](https://jupyter.org)
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white&labelColor=0a0a0a)](https://python.org)
+[![PyTorch](https://img.shields.io/badge/PyTorch-DL-EE4C2C?style=flat-square&logo=pytorch&logoColor=white&labelColor=0a0a0a)](https://pytorch.org)
+[![SB3](https://img.shields.io/badge/Stable--Baselines3-RL-00ff41?style=flat-square&labelColor=0a0a0a)](https://stable-baselines3.readthedocs.io)
+[![License](https://img.shields.io/badge/license-MIT-00ff41?style=flat-square&labelColor=0a0a0a)](LICENSE)
+[![Portfolio](https://img.shields.io/badge/portfolio-live-00ff41?style=flat-square&labelColor=0a0a0a)](https://ShubbhRM.github.io/Finance-RL)
+
+[**→ View Live Portfolio Page**](https://ShubbhRM.github.io/Finance-RL)
+
+</div>
+
+---
+
+## `$ cat project.md`
+
+A systematic study comparing **Deep Reinforcement Learning** agents for stock trading.
+Each experiment isolates one variable — architecture, algorithm, or reward signal — to measure its effect on trading performance.
+
+**Research questions:**
+- Does CNN beat MLP for temporal price pattern recognition?
+- Does LSTM sequential memory improve multi-step decision quality?
+- Does Sharpe Ratio reward outperform raw P&L as a training signal?
+- How does on-policy PPO compare to off-policy DQN in this setting?
+
+---
+
+## `$ ls experiments/`
+
+| # | Notebook | Architecture | Algorithm | Strategy | Reward |
+|---|----------|-------------|-----------|----------|--------|
+| 01 | `DQN_MlpPolicy_OneStockPolicy.ipynb` | MLP | DQN | OneStock | P&L |
+| 02 | `DQN_MlpPolicy_OneStockPolicy-NetWorthCentric.ipynb` | MLP | DQN | OneStock | NetWorth |
+| 03 | `DQN_MlpPolicy_AllInPolicy.ipynb` | MLP | DQN | AllIn | P&L |
+| 04 | `DQN_MlpPolicy_AllInPolicy-NetWorthCentric.ipynb` | MLP | DQN | AllIn | NetWorth |
+| 05 | `DQN_MlpPolicy_YesFeature Scaling.ipynb` | MLP | DQN | OneStock | P&L *(+scaling)* |
+| 06 | `DQN_CustomPolicy(CNN)_OneStockPolicy.ipynb` | CNN | DQN | OneStock | P&L |
+| 07 | `DQN_CustomPolicy(CNN)_OneStockPolicy-SharpeRatio.ipynb` | CNN | DQN | OneStock | Sharpe |
+| 08 | `DQN_CustomPolicy(CNN)_AllInPolicy.ipynb` | CNN | DQN | AllIn | P&L |
+| 09 | `DQN_CustomPolicy(CNN)_AllInPolicy-SharpeRatio.ipynb` | CNN | DQN | AllIn | Sharpe |
+| 10 | `DQN_CustomPolicy(CNN-LSTM)_OneStockPolicy.ipynb` | CNN-LSTM | DQN | OneStock | P&L |
+| 11 | `DQN_CustomPolicy(CNN-LSTM)_AllInPolicy.ipynb` | CNN-LSTM | DQN | AllIn | P&L |
+| 12 | `PPO_MlpPolicy_AllIn.ipynb` | MLP | PPO | AllIn | P&L |
+| 13 | `PPO_MlpPolicy_AllIn-Copy1.ipynb` | MLP | PPO | AllIn | P&L |
+| 14 | `ML Mods 1.ipynb` | MLP | DQN | OneStock | P&L *(ML mods)* |
+
+---
+
+## `$ cat architecture.md`
+
+```
+INPUT (OHLCV window)
+        │
+   ┌────┴──────────┐
+   │               │               │
+  MLP             CNN          CNN-LSTM
+  FC×3          Conv1D×3       Conv1D×3
+(256→128→64)    Flatten       LSTM(256)
+   │               │               │
+   └────────┬───────────────────────┘
+            │
+       Action Head
+    [Buy / Sell / Hold]
 ```
 
-3. (Optional) Edit policies, indicators, and context window sizes inside each notebook
+| Architecture | Description | Experiments |
+|---|---|---|
+| **MLP** | Default SB3 `MlpPolicy` — FC layers (256→128→64→\|A\|) | 7 |
+| **CNN** | Custom `Conv1D×3` extractor over price window | 4 |
+| **CNN-LSTM** | Conv1D → LSTM(256) → FC — full sequential memory | 3 |
 
 ---
 
-## 📚 Future Directions
+## `$ cat action_space.md`
 
-- Implement PPO/DDPG for **continuous action control**
-- Add **sentiment analysis** and **commodity correlation features**
-- Integrate **real-time backtesting engine**
-- Explore **multi-stock environments** or **portfolio balancing**
+| Strategy | Type | Description |
+|---|---|---|
+| **OneStockPolicy** | Discrete | `{Buy 1, Sell 1, Hold}` — fixed single unit |
+| **AllInPolicy** | Discrete | `{Buy 100%, Sell 100%}` — all-or-nothing |
+| **Continuous** *(upcoming)* | Continuous | Fractional `[-1, 1]` via PPO / DDPG |
 
 ---
 
+## `$ cat reward_functions.md`
+
+| Reward | Formula | Goal |
+|---|---|---|
+| **P&L Delta** | `Δ portfolio_value` | Maximize raw profit per step |
+| **Sharpe Ratio** | `mean(returns) / std(returns)` | Risk-adjusted return |
+| **Net Worth** | `cash + holdings × price` | Maximize total portfolio wealth |
+
 ---
+
+## `$ ./install.sh`
+
+```bash
+# Clone
+git clone https://github.com/ShubbhRM/Finance-RL.git
+cd Finance-RL
+
+# Install dependencies
+pip install stable-baselines3[extra] gym pandas matplotlib torch
+
+# Launch any experiment
+jupyter notebook "DQN_CustomPolicy(CNN-LSTM)_OneStockPolicy.ipynb"
+```
+
+---
+
+## `$ cat roadmap.md`
+
+- [x] DQN with MLP policy
+- [x] Custom CNN feature extractor
+- [x] Hybrid CNN-LSTM architecture
+- [x] Sharpe Ratio reward signal
+- [x] Net Worth reward signal
+- [x] PPO on-policy baseline
+- [ ] DDPG continuous action control
+- [ ] Sentiment analysis features
+- [ ] Real-time backtesting engine
+- [ ] Multi-stock / portfolio environment
+
+---
+
+<div align="center">
+
+**`[ ShubbhRM / Finance-RL ]`**
+
+[Portfolio](https://ShubbhRM.github.io/Finance-RL) · [Issues](https://github.com/ShubbhRM/Finance-RL/issues) · [Discussions](https://github.com/ShubbhRM/Finance-RL/discussions)
+
+</div>
