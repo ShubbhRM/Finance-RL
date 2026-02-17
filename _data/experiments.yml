@@ -1,0 +1,139 @@
+- id: 1
+  name: "DQN + MLP + OneStockPolicy + P&L"
+  notebook: "DQN_MlpPolicy_OneStockPolicy.ipynb"
+  architecture: "MLP"
+  strategy: "OneStockPolicy"
+  reward: "PnL"
+  algorithm: "DQN"
+  description: "Baseline MLP agent with simple P&L reward. Buy/Sell/Hold one unit at a time."
+  badge: "baseline"
+
+- id: 2
+  name: "DQN + MLP + OneStockPolicy + NetWorth"
+  notebook: "DQN_MlpPolicy_OneStockPolicy-NetWorthCentric.ipynb"
+  architecture: "MLP"
+  strategy: "OneStockPolicy"
+  reward: "NetWorth"
+  algorithm: "DQN"
+  description: "MLP agent optimizing total portfolio net worth rather than per-trade P&L."
+  badge: null
+
+- id: 3
+  name: "DQN + MLP + AllInPolicy + P&L"
+  notebook: "DQN_MlpPolicy_AllInPolicy.ipynb"
+  architecture: "MLP"
+  strategy: "AllInPolicy"
+  reward: "PnL"
+  algorithm: "DQN"
+  description: "AllIn strategy — agent commits 100% of portfolio to a position. Maximum aggression."
+  badge: null
+
+- id: 4
+  name: "DQN + MLP + AllInPolicy + NetWorth"
+  notebook: "DQN_MlpPolicy_AllInPolicy-NetWorthCentric.ipynb"
+  architecture: "MLP"
+  strategy: "AllInPolicy"
+  reward: "NetWorth"
+  algorithm: "DQN"
+  description: "AllIn strategy with net-worth-centric reward — tracks total portfolio wealth."
+  badge: null
+
+- id: 5
+  name: "DQN + MLP + Feature Scaling"
+  notebook: "DQN_MlpPolicy_YesFeature Scaling.ipynb"
+  architecture: "MLP"
+  strategy: "OneStockPolicy"
+  reward: "PnL"
+  algorithm: "DQN"
+  description: "Ablation study: MLP with feature normalization/scaling enabled. Tests whether scaled inputs improve convergence."
+  badge: "ablation"
+
+- id: 6
+  name: "DQN + CNN + OneStockPolicy + P&L"
+  notebook: "DQN_CustomPolicy(CNN)_OneStockPolicy.ipynb"
+  architecture: "CNN"
+  strategy: "OneStockPolicy"
+  reward: "PnL"
+  algorithm: "DQN"
+  description: "Custom CNN feature extractor for temporal price pattern recognition. Conv1D layers over OHLCV sequences."
+  badge: null
+
+- id: 7
+  name: "DQN + CNN + OneStockPolicy + Sharpe"
+  notebook: "DQN_CustomPolicy(CNN)_OneStockPolicy-SharpeRatio.ipynb"
+  architecture: "CNN"
+  strategy: "OneStockPolicy"
+  reward: "Sharpe"
+  algorithm: "DQN"
+  description: "CNN + Sharpe Ratio reward — convolutional features combined with risk-adjusted optimization."
+  badge: "risk-adjusted"
+
+- id: 8
+  name: "DQN + CNN + AllInPolicy + P&L"
+  notebook: "DQN_CustomPolicy(CNN)_AllInPolicy.ipynb"
+  architecture: "CNN"
+  strategy: "AllInPolicy"
+  reward: "PnL"
+  algorithm: "DQN"
+  description: "CNN with aggressive AllIn trading strategy. Tests whether spatial features support high-conviction entries."
+  badge: null
+
+- id: 9
+  name: "DQN + CNN + AllInPolicy + Sharpe"
+  notebook: "DQN_CustomPolicy(CNN)_AllInPolicy-SharpeRatio.ipynb"
+  architecture: "CNN"
+  strategy: "AllInPolicy"
+  reward: "Sharpe"
+  algorithm: "DQN"
+  description: "Maximum risk environment: CNN agent making all-in decisions with Sharpe-penalized reward signal."
+  badge: "advanced"
+
+- id: 10
+  name: "DQN + CNN-LSTM + OneStockPolicy + P&L"
+  notebook: "DQN_CustomPolicy(CNN-LSTM)_OneStockPolicy.ipynb"
+  architecture: "CNN-LSTM"
+  strategy: "OneStockPolicy"
+  reward: "PnL"
+  algorithm: "DQN"
+  description: "Hybrid CNN-LSTM: local Conv1D pattern detection feeding into LSTM(256) for trend memory."
+  badge: "hybrid"
+
+- id: 11
+  name: "DQN + CNN-LSTM + AllInPolicy + P&L"
+  notebook: "DQN_CustomPolicy(CNN-LSTM)_AllInPolicy.ipynb"
+  architecture: "CNN-LSTM"
+  strategy: "AllInPolicy"
+  reward: "PnL"
+  algorithm: "DQN"
+  description: "Full sequential CNN-LSTM architecture with aggressive AllIn position sizing."
+  badge: null
+
+- id: 12
+  name: "PPO + MLP + AllInPolicy + P&L"
+  notebook: "PPO_MlpPolicy_AllIn.ipynb"
+  architecture: "MLP"
+  strategy: "AllInPolicy"
+  reward: "PnL"
+  algorithm: "PPO"
+  description: "PPO baseline: on-policy proximal policy optimization vs. DQN off-policy. MLP policy network."
+  badge: "ppo"
+
+- id: 13
+  name: "PPO + MLP + AllInPolicy + P&L (Copy)"
+  notebook: "PPO_MlpPolicy_AllIn-Copy1.ipynb"
+  architecture: "MLP"
+  strategy: "AllInPolicy"
+  reward: "PnL"
+  algorithm: "PPO"
+  description: "PPO variant / checkpoint run. On-policy learning experiment iteration."
+  badge: "ppo"
+
+- id: 14
+  name: "ML Modifications Experiment"
+  notebook: "ML Mods 1.ipynb"
+  architecture: "MLP"
+  strategy: "OneStockPolicy"
+  reward: "PnL"
+  algorithm: "DQN"
+  description: "Broader ML modifications experiment — architecture search, hyperparameter tuning, and policy comparisons."
+  badge: "research"

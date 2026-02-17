@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body class="terminal-body">
+  <!-- CRT effect overlays (pure CSS, no JS) -->
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  {% include nav.html %}
+
+  <main id="main-content">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<section class="section" id="results" aria-label="Results section">
+  <div class="container">
+    <h2 class="section-title">results --summary</h2>
+    <p class="section-desc">
+      <span class="prompt-arrow">></span>
+      Experiment matrix. Populate <code>sharpe</code> and <code>pnl</code> fields in
+      <code>_data/experiments.yml</code> after running notebooks.
+    </p>
+
+    <div class="results-table-wrap">
+      <table class="terminal-table" aria-label="Experiment results">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Architecture</th>
+            <th scope="col">Algorithm</th>
+            <th scope="col">Strategy</th>
+            <th scope="col">Reward</th>
+            <th scope="col">Badge</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for exp in site.data.experiments %}
+          <tr class="result-row" data-arch="{{ exp.architecture }}" data-algo="{{ exp.algorithm }}">
+            <td class="exp-id-cell">EXP_{{ exp.id | prepend: '000' | slice: -3, 3 }}</td>
+            <td><span class="tag tag-arch">{{ exp.architecture }}</span></td>
+            <td><span class="tag tag-algo">{{ exp.algorithm }}</span></td>
+            <td><span class="tag tag-strategy">{{ exp.strategy }}</span></td>
+            <td><span class="tag tag-reward">{{ exp.reward }}</span></td>
+            <td>
+              {% if exp.badge %}
+              <span class="tag tag-badge tag-{{ exp.badge | downcase | replace: ' ', '-' }}">{{ exp.badge | upcase }}</span>
+              {% else %}
+              <span class="term-muted">—</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Architecture comparison grid -->
+    <div class="arch-comparison">
+      <div class="arch-card">
+        <div class="arch-title">
+          <span class="prompt-sym">#</span> MLP
+        </div>
+        <div class="arch-desc">
+          Stable-Baselines3 default MlpPolicy. Fully-connected layers
+          (256→128→64→actions). Fast to train, strong baseline.
+        </div>
+        <div class="arch-count">
+          <span class="count-num">7</span>
+          <span class="count-label">experiments</span>
+        </div>
+      </div>
+
+      <div class="arch-card">
+        <div class="arch-title">
+          <span class="prompt-sym">#</span> CNN
+        </div>
+        <div class="arch-desc">
+          Custom Conv1D feature extractor. Learns local price patterns
+          from OHLCV windows. Lower parameter count than MLP-equiv.
+        </div>
+        <div class="arch-count">
+          <span class="count-num">4</span>
+          <span class="count-label">experiments</span>
+        </div>
+      </div>
+
+      <div class="arch-card arch-card--featured">
+        <div class="arch-title">
+          <span class="prompt-sym">#</span> CNN-LSTM
+        </div>
+        <div class="arch-desc">
+          Hybrid: Conv1D for local patterns → LSTM(256) for sequential
+          memory → FC head. Most expressive architecture in this study.
+        </div>
+        <div class="arch-count">
+          <span class="count-num">3</span>
+          <span class="count-label">experiments</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="help-text">
+      <span class="prompt-arrow">></span>
+      To populate metrics: extract final Sharpe and P&amp;L values from each notebook
+      and add <code>sharpe: 1.23</code> &amp; <code>pnl: "+12.4%"</code> fields to
+      <code>_data/experiments.yml</code>.
+    </p>
+  </div>
+</section>

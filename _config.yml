@@ -1,0 +1,29 @@
+title: "Finance-RL"
+description: "Reinforcement Learning for Stock Trading — DQN/PPO Agents with MLP, CNN, CNN-LSTM architectures"
+baseurl: "/Finance-RL"
+url: "https://ShubbhRM.github.io"
+github_username: ShubbhRM
+repository: ShubbhRM/Finance-RL
+
+theme: null
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .gitignore
+  - "*.ipynb"

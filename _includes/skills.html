@@ -1,0 +1,81 @@
+<section class="section" id="skills" aria-label="Skills section">
+  <div class="container">
+    <h2 class="section-title">skills --tech-stack</h2>
+    <p class="section-desc">
+      <span class="prompt-arrow">></span>
+      Core competencies across languages, deep learning, financial ML, and tooling.
+    </p>
+
+    <div class="skills-categories">
+
+      <div class="skill-category">
+        <div class="skill-cat-label">
+          <span class="prompt-sym">#</span> languages
+        </div>
+        {% for skill in site.data.skills.languages %}
+        <div class="skill-item" data-level="{{ skill.level }}">
+          <div class="skill-header">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-pct">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar-wrap" role="progressbar" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ skill.name }} proficiency">
+            <div class="skill-bar"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-label">
+          <span class="prompt-sym">#</span> deep-learning
+        </div>
+        {% for skill in site.data.skills.deep_learning %}
+        <div class="skill-item" data-level="{{ skill.level }}">
+          <div class="skill-header">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-pct">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar-wrap" role="progressbar" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ skill.name }} proficiency">
+            <div class="skill-bar"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-label">
+          <span class="prompt-sym">#</span> finance-ml
+        </div>
+        {% for skill in site.data.skills.finance_ml %}
+        <div class="skill-item" data-level="{{ skill.level }}">
+          <div class="skill-header">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-pct">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar-wrap" role="progressbar" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ skill.name }} proficiency">
+            <div class="skill-bar"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-cat-label">
+          <span class="prompt-sym">#</span> tools
+        </div>
+        {% for skill in site.data.skills.tools %}
+        <div class="skill-item" data-level="{{ skill.level }}">
+          <div class="skill-header">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-pct">{{ skill.level }}%</span>
+          </div>
+          <div class="skill-bar-wrap" role="progressbar" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ skill.name }} proficiency">
+            <div class="skill-bar"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</section>

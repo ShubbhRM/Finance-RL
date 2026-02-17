@@ -1,0 +1,45 @@
+languages:
+  - name: "Python"
+    level: 92
+  - name: "Bash / Shell"
+    level: 60
+  - name: "SQL"
+    level: 55
+
+deep_learning:
+  - name: "PyTorch"
+    level: 85
+  - name: "Stable-Baselines3"
+    level: 88
+  - name: "CNN (Conv1D/2D)"
+    level: 80
+  - name: "LSTM / RNN"
+    level: 78
+  - name: "DQN"
+    level: 90
+  - name: "PPO / Actor-Critic"
+    level: 82
+
+finance_ml:
+  - name: "RL Trading Envs (Gym)"
+    level: 87
+  - name: "Sharpe Ratio Optimization"
+    level: 83
+  - name: "Feature Engineering"
+    level: 78
+  - name: "Backtesting"
+    level: 72
+  - name: "OHLCV Data"
+    level: 85
+
+tools:
+  - name: "Jupyter Notebook"
+    level: 92
+  - name: "Git / GitHub"
+    level: 80
+  - name: "NumPy / Pandas"
+    level: 88
+  - name: "Matplotlib"
+    level: 80
+  - name: "Conda / Pip"
+    level: 75

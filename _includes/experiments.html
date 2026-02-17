@@ -1,0 +1,96 @@
+<section class="section" id="experiments" aria-label="Experiments section">
+  <div class="container">
+    <h2 class="section-title">experiments --list</h2>
+    <p class="section-desc">
+      <span class="prompt-arrow">></span>
+      14 experiments across 3 architectures × 2 strategies × 3 reward signals × 2 algorithms.
+      Use filters to navigate.
+    </p>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar" role="toolbar" aria-label="Filter experiments">
+      <span class="filter-label">filter --by</span>
+
+      <div class="filter-group" role="group" aria-label="Filter by show all">
+        <button class="filter-btn active" data-filter="all" data-group="all" id="filter-all">ALL</button>
+      </div>
+
+      <div class="filter-separator">|</div>
+
+      <div class="filter-group" role="group" aria-label="Filter by architecture">
+        <span class="filter-group-label">arch:</span>
+        <button class="filter-btn" data-filter="MLP" data-group="arch">MLP</button>
+        <button class="filter-btn" data-filter="CNN" data-group="arch">CNN</button>
+        <button class="filter-btn" data-filter="CNN-LSTM" data-group="arch">CNN-LSTM</button>
+      </div>
+
+      <div class="filter-separator">|</div>
+
+      <div class="filter-group" role="group" aria-label="Filter by algorithm">
+        <span class="filter-group-label">algo:</span>
+        <button class="filter-btn" data-filter="DQN" data-group="algo">DQN</button>
+        <button class="filter-btn" data-filter="PPO" data-group="algo">PPO</button>
+      </div>
+
+      <div class="filter-separator">|</div>
+
+      <div class="filter-group" role="group" aria-label="Filter by reward">
+        <span class="filter-group-label">reward:</span>
+        <button class="filter-btn" data-filter="Sharpe" data-group="reward">Sharpe</button>
+        <button class="filter-btn" data-filter="PnL" data-group="reward">P&amp;L</button>
+        <button class="filter-btn" data-filter="NetWorth" data-group="reward">NetWorth</button>
+      </div>
+    </div>
+
+    <!-- Results counter -->
+    <div class="filter-status" role="status" aria-live="polite">
+      <span class="prompt-arrow">></span>
+      Showing <span id="exp-count">14</span> / 14 experiments
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="experiments-grid" id="experiments-grid">
+      {% for exp in site.data.experiments %}
+      <article class="exp-card"
+           data-arch="{{ exp.architecture }}"
+           data-algo="{{ exp.algorithm }}"
+           data-reward="{{ exp.reward }}"
+           data-strategy="{{ exp.strategy }}"
+           aria-label="Experiment {{ exp.id }}: {{ exp.name }}">
+
+        <div class="exp-id">EXP_{{ exp.id | prepend: '000' | slice: -3, 3 }}</div>
+
+        <div class="exp-name">{{ exp.name }}</div>
+
+        <div class="exp-tags" aria-label="Tags">
+          <span class="tag tag-arch" title="Architecture">{{ exp.architecture }}</span>
+          <span class="tag tag-algo" title="Algorithm">{{ exp.algorithm }}</span>
+          <span class="tag tag-reward" title="Reward">{{ exp.reward }}</span>
+          <span class="tag tag-strategy" title="Strategy">{{ exp.strategy }}</span>
+          {% if exp.badge %}
+          <span class="tag tag-badge tag-{{ exp.badge | downcase | replace: ' ', '-' }}">{{ exp.badge | upcase }}</span>
+          {% endif %}
+        </div>
+
+        <p class="exp-desc">{{ exp.description }}</p>
+
+        <a href="https://github.com/ShubbhRM/Finance-RL/blob/main/{{ exp.notebook | url_encode }}"
+           class="exp-link"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Open notebook for {{ exp.name }}">
+          → open notebook
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+
+    <!-- Empty state (shown when all filtered out) -->
+    <div class="no-results" id="no-results" hidden>
+      <span class="prompt-sym">$</span> grep --no-matches
+      <br>
+      <span class="term-muted">No experiments match this filter combination.</span>
+    </div>
+
+  </div>
+</section>
